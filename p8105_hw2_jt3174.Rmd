@@ -248,9 +248,11 @@ baby_names =
   # read the dataset
   read_csv("./data/Popular_Baby_Names.csv") %>% 
   # clean names
-  janitor::clean_names() %>% 
-  # make everything in their lower cases
-  mutate(gender = str_to_lower(gender), ethnicity = str_to_lower(ethnicity), childs_first_name = str_to_lower(childs_first_name)) %>% 
+  janitor::clean_names() %>%
+  # mutate the ethnicity to same names
+  mutate_all(~replace(., ethnicity == "ASIAN AND PACI", "ASIAN AND PACIFIC ISLANDER")) %>% 
+  mutate_all(~replace(., ethnicity == "BLACK NON HISP", "BLACK NON HISPANIC")) %>% 
+  mutate_all(~replace(., ethnicity == "WHITE NON HISP", "WHITE NON HISPANIC")) %>% 
   # remove duplicate rows
   distinct()
 
@@ -261,9 +263,36 @@ baby_names
 
 Produce a well-structured, reader-friendly table showing the rank in popularity of the name “Olivia” as a female baby name over time; this should have rows for ethnicities and columns for year. Produce a similar table showing the most popular name among male children over time.
 
-```{r produce a well-structed table}
+```{r produce well-structed tables}
 
+Olivia_female =
+  # keep only Olivia and female
+  filter(baby_names, childs_first_name == "Olivia", gender == "FEMALE") %>% 
+  pivot_wider(
+    # find unique identifer
+    id_cols = c("ethnicity", "year_of_birth"),
+    # put years into column
+    names_from = "year_of_birth",
+    # put ranks into table cells
+    values_from = "rank"
+  )# %>% 
+  # show only for Olivia as female baby names
+  #select(-gender)
 
+Olivia_female
+
+Popular_name_male = 
+  filter(baby_names, rank == 1, gender == "MALE") %>% 
+  pivot_wider(
+    # find unique identifer
+    id_cols = c("ethnicity", "year_of_birth"),
+    # put years into column
+    names_from = "year_of_birth",
+    # put names into table cells
+    values_from = "childs_first_name"
+  ) 
+
+Popular_name_male
 
 ```
 
