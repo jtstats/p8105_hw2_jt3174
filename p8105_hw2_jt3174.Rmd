@@ -250,9 +250,11 @@ baby_names =
   # clean names
   janitor::clean_names() %>%
   # mutate the ethnicity to same names
-  mutate_all(~replace(., ethnicity == "ASIAN AND PACI", "ASIAN AND PACIFIC ISLANDER")) %>% 
-  mutate_all(~replace(., ethnicity == "BLACK NON HISP", "BLACK NON HISPANIC")) %>% 
-  mutate_all(~replace(., ethnicity == "WHITE NON HISP", "WHITE NON HISPANIC")) %>% 
+  mutate(ethnicity = replace(ethnicity, ethnicity == "ASIAN AND PACI", "ASIAN AND PACIFIC ISLANDER")) %>% 
+  mutate(ethnicity = replace(ethnicity, ethnicity == "BLACK NON HISP", "BLACK NON HISPANIC")) %>% 
+  mutate(ethnicity = replace(ethnicity, ethnicity == "WHITE NON HISP", "WHITE NON HISPANIC")) %>% 
+  # change to lower case
+  mutate(childs_first_name = str_to_lower(childs_first_name)) %>% 
   # remove duplicate rows
   distinct()
 
