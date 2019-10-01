@@ -7,7 +7,7 @@ output: github_document
 
 ## **Problem 1**
 
-```{r read and clean Mr. Trash Wheel sheet}
+```{r read and clean Mr. Trash Wheel sheet, warning = FALSE}
 
 # load the libraries that are necessary
 library(tidyverse)
@@ -32,7 +32,7 @@ trash_wheel_data
 ```
 
 
-```{r Read, clean and combine 2017 and 2018}
+```{r Read, clean and combine 2017 and 2018, warning = FALSE}
 
 # read and clean 2017 data
 Prec_2017 = 
@@ -91,7 +91,7 @@ This whole datasets includes information on the dumpter number, date of collecti
 
 ## **Problem 2**
 
-```{r read and clean pols-month.csv}
+```{r read and clean pols-month.csv, warning = FALSE}
 
 # read and clean data
 pols_month = 
@@ -124,7 +124,7 @@ pols_month
 ```
 
 
-```{r clean and read snp.csv}
+```{r clean and read snp.csv, warning = FALSE}
 
 # read and clean the data
 snp_data = 
@@ -151,7 +151,7 @@ snp_data
 ```
 
 
-```{r tidy the unemployment data}
+```{r tidy the unemployment data, warning = FALSE}
 
 # read, clean and tidy the unemployment data
 unemployment_data = 
@@ -177,7 +177,7 @@ unemployment_data
 ```
 
 
-```{r join datasets}
+```{r join datasets, warning = FALSE}
 
 merge_data = 
   # merging snp into pols
@@ -200,7 +200,7 @@ In the dataset called merge_data, this is pretty much the same with what was sta
 ## **Problem 3**
 
 
-```{r load and tidy the data}
+```{r load and tidy the data, warning = FALSE}
 
 # load and tidy the data
 baby_names = 
@@ -223,7 +223,7 @@ baby_names
 
 
 
-```{r produce well-structed tables}
+```{r produce well-structed tables, warning = FALSE}
 
 # Make a dataframe for the table first for Olivia as female baby names
 Olivia_female =
@@ -258,7 +258,7 @@ Popular_name_male
 ```
 
 
-```{r scatterplot}
+```{r scatterplot, warning = FALSE}
 
 # make a dataframe for male, white non-hispanic children born in 2016 with number of children with a name and their rank in popularity of that name
 white_non_hisp_2016 = 
