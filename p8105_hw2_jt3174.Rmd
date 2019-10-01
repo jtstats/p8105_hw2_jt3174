@@ -115,7 +115,8 @@ Prec_data %>%
 
 **Write a paragraph about these data**; you are encouraged to use inline R. Be sure to note the **number of observations** in both resulting datasets, and give examples of **key variables**. For available data, what was the **total precipitation in 2018**? What was **the median number of sports balls in a dumpster in 2017**?
 
-**Solution:** In the dataset called Prec_data, there are `r nrow(Prec_data)` observations. One of the most important data in this data set is the precipitation. For the key variables, I think the precipitation is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(Prec_data, precipitation))`, and the variance, which is `r  var(pull(Prec_data, precipitation))`. For the year of 2018, the total precipitation is 23.5. In the dataset called trash_wheel_data, there are `r nrow(trash_wheel_data)`. For the key variables, I think the weight is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(trash_wheel_data, weight_tons))`, and the variance, which is `r  var(pull(trash_wheel_data, weight_tons))`. The median number of sports balls in a dumpster in 2017 is `r median(pull(trash_wheel_data, sports_balls))`.
+**Solution:** 
+This whole datasets includes information on the dumpter number, date of collection, amount of total litter and litter type. Additional spreadsheets for Professor Trash wheel and for precipitation amounts are also included in the datasets. In the dataset called Prec_data, there are `r nrow(Prec_data)` observations. One of the most important data in this data set is the precipitation. For the key variables, I think the precipitation is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(Prec_data, precipitation))`, and the variance, which is `r  var(pull(Prec_data, precipitation))`. For the year of 2018, the total precipitation is 23.5. In the dataset called trash_wheel_data, there are `r nrow(trash_wheel_data)`. For the key variables, I think the weight is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(trash_wheel_data, weight_tons))`, and the variance, which is `r  var(pull(trash_wheel_data, weight_tons))`. The median number of sports balls in a dumpster in 2017 is `r median(pull(trash_wheel_data, sports_balls))`.
 
 
 ## **Problem 2**
@@ -242,6 +243,12 @@ merge_data
 
 Note: we could have used a date variable as a key instead of creating year and month keys; doing so would help with some kinds of plotting, and be a more accurate representation of the data. Date formats are tricky, though. For more information check out the lubridate package in the tidyverse.
 
+**Solution:** 
+In the dataset called pols_month, there are `r nrow(pols_month)` observations of `r ncol(pols_month)` variables related to the number of national politicians who are democratic or republic at any given time. There are date varaibles, number of republican or democratic governors/senators/representatives/president on the associated date. The range of dates is from 1949 to 2015. Some of the key variables are president and year. 
+In the dataset called snp_data, there are `r nrow(snp_data)` observations of `r ncol(snp_data)` variables related to Standard & Poor’s stock market index (S&P), often used as a representative measure of stock market as a whole. There are year, month and close values of the S&P stock index on the associated date. The range of dates is from 1950 to 2015. Some of the key variables are close, year and month. 
+In the dataset called unemployment_data, there are `r nrow(unemployment_data)` observations of `r ncol(unemployment_data)` variables related to the precentage of unemployment on the associated dates, which is pretty self-explanatory. The range of dates is from 
+1948 to 2015. Some of the key variables are umemployment, year and month. 
+In the dataset called merge_data, this is pretty much the same with what was stated above, because this dataset is just a combination with all three datasets above. There are `r nrow(merge_data)` observations of `r ncol(merge_data)` variables.  
 
 ## **Problem 3**
 
