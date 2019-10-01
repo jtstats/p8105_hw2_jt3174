@@ -19,7 +19,7 @@ set.seed(1)
 # read and clean the data
 trash_wheel_data = 
   # read the data, choose the sheet Mr. Trash Wheel, read only non-figure part, and get rid of notes as a column using read_excel
-  read_excel("./data/HealthyHarborWaterWheelTotals2018-7-28.xlsx", sheet = "Mr. Trash Wheel", range = "A2:N338") %>% 
+  read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = "Mr. Trash Wheel", range = "A2:N406") %>% 
   # clean names and use reasonable variable names
   janitor::clean_names() %>% 
   # omit rows that do not include dumpster-specific data
@@ -37,7 +37,7 @@ trash_wheel_data
 # read and clean 2017 data
 Prec_2017 = 
   # read the data in the sheet precipation 2017 and skip the first row
-  read_excel("./data/HealthyHarborWaterWheelTotals2018-7-28.xlsx", sheet = "2017 Precipitation", skip = 1) %>% 
+  read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = "2017 Precipitation", skip = 1) %>% 
   # clean names
   janitor::clean_names() %>% 
   # rename total column to precipitation
@@ -54,7 +54,7 @@ Prec_2017
 # read and clean 2018 data
 Prec_2018 = 
   # read the data in the sheet precipation 2018
-  read_excel("./data/HealthyHarborWaterWheelTotals2018-7-28.xlsx", sheet = "2018 Precipitation", skip = 1) %>% 
+  read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = "2018 Precipitation", skip = 1) %>% 
   # clean names
   janitor::clean_names() %>% 
   # rename total column to precipitation
@@ -86,7 +86,7 @@ Prec_data %>%
 ```
 
 **Data Description:** 
-This whole datasets includes information on the dumpter number, date of collection, amount of total litter and litter type. Additional spreadsheets for Professor Trash wheel and for precipitation amounts are also included in the datasets. In the dataset called Prec_data, there are `r nrow(Prec_data)` observations. One of the most important data in this data set is the precipitation. For the key variables, I think the precipitation is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(Prec_data, precipitation))`, and the variance, which is `r  var(pull(Prec_data, precipitation))`. For the year of 2018, the total precipitation is 23.5. In the dataset called trash_wheel_data, there are `r nrow(trash_wheel_data)`. For the key variables, I think the weight is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(trash_wheel_data, weight_tons))`, and the variance, which is `r  var(pull(trash_wheel_data, weight_tons))`. The median number of sports balls in a dumpster in 2017 is `r median(pull(trash_wheel_data, sports_balls))`.
+This whole datasets includes information on the dumpter number, date of collection, amount of total litter and litter type. Additional spreadsheets for Professor Trash wheel and for precipitation amounts are also included in the datasets. In the dataset called Prec_data, there are `r nrow(Prec_data)` observations. One of the most important data in this data set is the precipitation. For the key variables, I think the precipitation is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(Prec_data, precipitation))`, and the variance, which is `r  var(pull(Prec_data, precipitation))`. For the year of 2018, the total precipitation is 70.33. In the dataset called trash_wheel_data, there are `r nrow(trash_wheel_data)`. For the key variables, I think the weight is the most meaningful one. Some useful statistics of this variable is the average, which is `r mean(pull(trash_wheel_data, weight_tons))`, and the variance, which is `r  var(pull(trash_wheel_data, weight_tons))`. The median number of sports balls in a dumpster in 2017 is `r median(pull(trash_wheel_data, sports_balls))`.
 
 
 ## **Problem 2**
